@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Calculation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos globais */
+        * {
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: "Lato", sans-serif; 
+        }
+
+        /* Estilo do corpo da página */
+        body {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            background-image: url('https://img.freepik.com/free-vector/colourful-3d-background_52683-36246.jpg?t=st=1726892211~exp=1726895811~hmac=962ffb3f09cd0a7bffbddaad0d321c6053c084f2e4d2002f8ae78f57bd29d9fd&w=1060'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+        }
+
+        /* Estilo do container principal */
+        .container {
+            width: 90%; 
+            max-width: 420px; 
+            background: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(10px); 
+            border-radius: 10px; 
+            padding: 20px; 
+            text-align: center; 
+            color: #fff; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+        }
+
+        /* Estilo do título */
+        h1 {
+            margin-bottom: 20px; 
+            font-size: 2rem; 
+            color: #ffffff; 
+        }
+
+        /* Estilo da seção de formas geométricas */
+        .forma {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo de cada forma geométrica */
+        .forma div {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px; 
+            padding: 10px; 
+            margin: 5px 0; 
+            cursor: pointer; 
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        /* Efeito ao passar o mouse sobre as formas */
+        .forma div:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Estilo do botão */
+        button {
+            padding: 10px 20px; 
+            background-color: #d06ad9; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background 0.3s;
+        }
+
+        /* Efeito ao passar o mouse sobre o botão */
+        button:hover {
+            background-color: #c427ec; 
+        }
+
+        /* Estilo da seção de resultados */
+        #resultado {
+            margin-top: 20px; 
+            font-size: 1.2em; 
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose a geometric shape to calculate the area</h1>
+        <div class="forma">
+            <div onclick="calcularArea('retângulo')">Rectangle</div>
+            <div onclick="calcularArea('quadrado')">Square</div>
+            <div onclick="calcularArea('losango')">Rhombus</div>
+            <div onclick="calcularArea('trapézio')">Trapezoid</div>
+            <div onclick="calcularArea('paralelogramo')">Parallelogram</div>
+            <div onclick="calcularArea('triângulo')">Triangle</div>
+            <div onclick="calcularArea('círculo')">Circle</div>
+        </div>
+        <button onclick="window.location.href='index.html'">Back</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        // Função para calcular a área de diferentes formas geométricas
+        function calcularArea(forma) {
+            let resultado = "";
+            switch (forma) {
+                case 'retângulo':
+                    let baseRet = parseFloat(prompt("Enter the base of the rectangle:"));
+                    let alturaRet = parseFloat(prompt("Enter the height of the rectangle:"));
+                    resultado = "The area of the rectangle is: " + (baseRet * alturaRet);
+                    break;
+                case 'quadrado':
+                    let lado = parseFloat(prompt("Enter the length of the square's side:"));
+                    resultado = "The area of the square is: " + (lado * lado);
+                    break;
+                case 'losango':
+                    let diagonalMaior = parseFloat(prompt("Enter the longer diagonal of the rhombus:"));
+                    let diagonalMenor = parseFloat(prompt("Enter the shorter diagonal of the rhombus:"));
+                    resultado = "The area of the rhombus is: " + ((diagonalMaior * diagonalMenor) / 2);
+                    break;
+                case 'trapézio':
+                    let baseMaior = parseFloat(prompt("Enter the longer base of the trapezoid:"));
+                    let baseMenor = parseFloat(prompt("Enter the shorter base of the trapezoid:"));
+                    let alturaTrap = parseFloat(prompt("Enter the height of the trapezoid:"));
+                    resultado = "The area of the trapezoid is: " + (((baseMaior + baseMenor) * alturaTrap) / 2);
+                    break;
+                case 'paralelogramo':
+                    let basePar = parseFloat(prompt("Enter the base of the parallelogram:"));
+                    let alturaPar = parseFloat(prompt("Enter the height of the parallelogram:"));
+                    resultado = "The area of the parallelogram is: " + (basePar * alturaPar);
+                    break;
+                case 'triângulo':
+                    let baseTri = parseFloat(prompt("Enter the base of the triangle:"));
+                    let alturaTri = parseFloat(prompt("Enter the height of the triangle:"));
+                    resultado = "The area of the triangle is: " + ((baseTri * alturaTri) / 2);
+                    break;
+                case 'círculo':
+                    let raio = parseFloat(prompt("Enter the radius of the circle:"));
+                    resultado = "The area of the circle is: " + (Math.PI * Math.pow(raio, 2));
+                    break;
+                default:
+                    resultado = "Invalid shape!";
+            }
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</body>
+</html>

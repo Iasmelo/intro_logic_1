@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/95bbf1d870.js"></script>
+    <title>Welcome</title>
+    <script src="script.js" defer></script>
+</head>
+
+<div class="loading">
+        <i class="fa-solid fa-code fa-beat-fade"></i>
+        <div class="animation-bar"></div> <!-- Barra de carregamento -->
+    </div>
+<body>
+
+    <style>
+        .botao {
+            position: absolute; /* Posiciona o link em relação ao pai */
+            left: 20px; /* Distância da esquerda */
+            bottom: 20px; /* Distância do fundo */
+            padding: 10px 20px; /* Espaçamento interno */
+            background-color: #EAA695; /* Cor de fundo */
+            color: white; /* Cor do texto */
+            border: none; /* Remove borda */
+            border-radius: 5px; /* Bordas arredondadas */
+            text-decoration: none; /* Remove sublinhado */
+            cursor: pointer; /* Muda o cursor para mãozinha */
+        }
+
+        .botao:hover {
+            background-color: #CA5843; /* Cor ao passar o mouse */ }
+    </style>
+    <a href="formas.html" class="botao">second part</a> <!-- Link estilizado como botão -->
+
+    <div class="container"> 
+        <h1 id="perguntaNome">What's your name?</h1>
+        <div class="input-box">
+            <input type="text" id="nomeUsuario" placeholder="My name's...">
+        </div>
+        <button id="enviarNome">send name</button>
+
+        <h1 id="perguntaSobrenome" style="display: none;">What's your last name?</h1>
+        <div class="input-box" id="sobrenomeInputBox" style="display: none;"> 
+            <input type="text" id="sobrenomeUsuario" placeholder="My last name's...">
+        </div>
+        <button id="enviarSobrenome" style="display: none;">send last name</button>
+
+        <div class="input-box" id="idadeInputBox" style="display: none;"> 
+            <input type="number" id="idadeUsuario" placeholder="My age's..." min="13" max="100">
+        </div>
+        <button id="enviarIdade" style="display: none;">end age</button>
+
+        <p id="saudacao"></p>
+    </div>
+</body>
+</html>
+
+
+
+
+
